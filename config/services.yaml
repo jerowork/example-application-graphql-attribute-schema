@@ -22,3 +22,12 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # Required services for jerowork/graphql-attribute-schema
+    Psr\Container\ContainerInterface: '@service_container'
+
+    Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface:
+        class: Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory
+
+    Jerowork\GraphqlAttributeSchema\ParserFactory: ~
+    Jerowork\GraphqlAttributeSchema\SchemaBuilderFactory: ~

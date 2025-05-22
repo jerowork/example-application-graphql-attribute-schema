@@ -20,4 +20,7 @@ $config->ignoreErrorsOnPackage('symfony/yaml', [ErrorType::UNUSED_DEPENDENCY]);
 $config->ignoreErrorsOnExtension('ext-ctype', [ErrorType::UNUSED_DEPENDENCY]);
 $config->ignoreErrorsOnExtension('ext-iconv', [ErrorType::UNUSED_DEPENDENCY]);
 
+$config->ignoreErrorsOnPackage('guzzlehttp/psr7', [ErrorType::UNUSED_DEPENDENCY]);
+$config->ignoreErrorsOnPackage('php-http/discovery', [ErrorType::UNUSED_DEPENDENCY]);
+
 return $config;
