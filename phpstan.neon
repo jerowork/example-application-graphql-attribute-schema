@@ -1,0 +1,9 @@
+includes:
+	- phpstan-baseline.php
+
+parameters:
+    level: max
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - src/
+        - tests/

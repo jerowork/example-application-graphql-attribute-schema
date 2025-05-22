@@ -15,6 +15,11 @@
         "symfony/yaml": "7.2.*"
     },
     "require-dev": {
+        "captainhook/captainhook": "^5.25",
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.0",
+        "shipmonk/composer-dependency-analyser": "^1.8"
     },
     "config": {
         "allow-plugins": {
@@ -55,6 +60,19 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "cs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
+        "cs:dry-run": "PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --diff --dry-run --config=.php-cs-fixer.php",
+        "dependency-analyser": "vendor/bin/composer-dependency-analyser",
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
+        "phpstan:baseline": "vendor/bin/phpstan analyse -c phpstan.neon --generate-baseline phpstan-baseline.php src tests",
+        "rector": "vendor/bin/rector process --ansi",
+        "rector:dry-run": "vendor/bin/rector process --ansi --dry-run",
+        "test": [
+            "@rector:dry-run",
+            "@cs:dry-run",
+            "@phpstan",
+            "@dependency-analyser"
         ]
     },
     "conflict": {
