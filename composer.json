@@ -24,6 +24,7 @@
         "symfony/dotenv": "~7.2.0",
         "symfony/flex": "^2.6",
         "symfony/framework-bundle": "~7.2.5",
+        "symfony/http-kernel": "7.2.*",
         "symfony/runtime": "~7.2.3",
         "symfony/yaml": "~7.2.6"
     },
