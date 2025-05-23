@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
-    ->in(['src', 'tests']);
+    ->in(['src']);
 
 return (new PhpCsFixer\Config())
     ->setCacheFile('var/.php-cs-fixer.cache')

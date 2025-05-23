@@ -36,7 +36,6 @@ $config = RectorConfig::configure()
     ->withCache(__DIR__ . '/var/rector')
     ->withPaths([
         __DIR__ . '/src',
-        __DIR__ . '/tests',
     ])
     ->withParallel()
     ->withRules([
