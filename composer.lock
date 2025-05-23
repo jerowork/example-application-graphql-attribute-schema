@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "439f87468ffef3656705164f81bb10a6",
+    "content-hash": "6e9bf93361e3e21b4a647af65046e1c7",
     "packages": [
         {
             "name": "brick/math",
@@ -184,16 +184,16 @@
         },
         {
             "name": "jerowork/graphql-attribute-schema",
-            "version": "0.3.1",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jerowork/graphql-attribute-schema.git",
-                "reference": "ddd831092c8d2c8a34fe0e8964257b83acbd37d2"
+                "reference": "2ffd2e3105ca189b817deea68a4520adde4f84ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/ddd831092c8d2c8a34fe0e8964257b83acbd37d2",
-                "reference": "ddd831092c8d2c8a34fe0e8964257b83acbd37d2",
+                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/2ffd2e3105ca189b817deea68a4520adde4f84ba",
+                "reference": "2ffd2e3105ca189b817deea68a4520adde4f84ba",
                 "shasum": ""
             },
             "require": {
@@ -237,9 +237,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jerowork/graphql-attribute-schema/issues",
-                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.3.1"
+                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.4.0"
             },
-            "time": "2025-02-17T19:58:31+00:00"
+            "time": "2025-05-23T15:38:27+00:00"
         },
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -1942,16 +1942,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v2.6.0",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "ccc4d2dc15e90f0fed555d6078c3698396306cdd"
+                "reference": "5d743b3b78fabe9f3146586d77b0a1f9292851fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/ccc4d2dc15e90f0fed555d6078c3698396306cdd",
-                "reference": "ccc4d2dc15e90f0fed555d6078c3698396306cdd",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/5d743b3b78fabe9f3146586d77b0a1f9292851fc",
+                "reference": "5d743b3b78fabe9f3146586d77b0a1f9292851fc",
                 "shasum": ""
             },
             "require": {
@@ -1990,7 +1990,7 @@
             "description": "Composer plugin for Symfony",
             "support": {
                 "issues": "https://github.com/symfony/flex/issues",
-                "source": "https://github.com/symfony/flex/tree/v2.6.0"
+                "source": "https://github.com/symfony/flex/tree/v2.7.0"
             },
             "funding": [
                 {
@@ -2006,7 +2006,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-21T07:23:28+00:00"
+            "time": "2025-05-23T11:41:40+00:00"
         },
         {
             "name": "symfony/framework-bundle",
