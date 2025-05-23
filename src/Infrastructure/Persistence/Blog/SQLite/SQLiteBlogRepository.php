@@ -59,73 +59,90 @@ final readonly class SQLiteBlogRepository implements BlogRepository
     }
 
     public function getBlogs(
-        BlogStatus $status,
-        string $authorId,
+        ?BlogStatus $status,
+        ?string $authorId,
         ?int $first,
         ?string $afterCursor,
         ?int $last,
         ?string $beforeCursor,
     ): Blogs {
-        $sqlite = $this->sqliteFactory->create();
-        $direction = $last !== null && $beforeCursor !== null ? self::DIRECTION_BACKWARD : self::DIRECTION_FORWARD;
+        if ($first !== null && $last !== null) {
+            throw new RuntimeException('Cannot use both first and last');
+        }
 
-        if ($direction === self::DIRECTION_BACKWARD) {
+        $sqlite = $this->sqliteFactory->create();
+
+        $direction = $first !== null ? self::DIRECTION_FORWARD : self::DIRECTION_BACKWARD;
+
+        $whereStatements = [];
+        $binds = [];
+
+        if ($status !== null) {
+            $whereStatements[] = 'status = :status';
+            $binds['status'] = $status->value;
+        }
+
+        if ($authorId !== null) {
+            $whereStatements[] = 'author_id = :author_id';
+            $binds['author_id'] = $authorId;
+        }
+
+        $limit = '';
+
+        if ($first !== null) {
+            $limit = 'LIMIT :limit';
+            $binds['limit'] = $first;
+        } elseif ($last !== null) {
+            $limit = 'LIMIT :limit';
+            $binds['limit'] = $last;
+        }
+
+        if ($afterCursor !== null) {
+            $whereStatements[] = 'id < :after_cursor';
+            $binds['after_cursor'] = $afterCursor;
+        }
+
+        if ($beforeCursor !== null) {
+            $whereStatements[] = 'id > :before_cursor';
+            $binds['before_cursor'] = $beforeCursor;
+        }
+
+        $where = '';
+
+        if ($whereStatements !== []) {
+            $where = sprintf('WHERE %s', implode(' AND ', $whereStatements));
+        }
+
+        if ($direction === self::DIRECTION_FORWARD) {
             $statement = $sqlite->prepare(
-                <<<'SQL'
-                    SELECT * FROM (
-                        SELECT * 
-                        FROM blog 
-                        WHERE status = :status
-                        AND author_id = :author_id
-                        AND id > :cursor
-                        ORDER BY id ASC
-                        LIMIT :limit
-                    ) ORDER BY id DESC
+                <<<SQL
+                    SELECT * 
+                    FROM blog 
+                    {$where}
+                    ORDER BY id DESC
+                    {$limit}
                     SQL
             );
         } else {
-            if ($afterCursor === null) {
-                $statement = $sqlite->prepare(
-                    <<<'SQL'
+            $statement = $sqlite->prepare(
+                <<<SQL
+                    SELECT * FROM (
                         SELECT * 
                         FROM blog 
-                        WHERE status = :status
-                        AND author_id = :author_id
-                        ORDER BY id DESC
-                        LIMIT :limit
-                        SQL
-                );
-            } else {
-                $statement = $sqlite->prepare(
-                    <<<'SQL'
-                        SELECT * 
-                        FROM blog 
-                        WHERE status = :status
-                        AND author_id = :author_id
-                        AND id < :cursor
-                        ORDER BY id DESC
-                        LIMIT :limit
-                        SQL
-                );
-            }
+                        {$where}
+                        ORDER BY id ASC
+                        {$limit}
+                    ) ORDER BY id DESC
+                    SQL
+            );
         }
 
         if ($statement === false) {
             throw new RuntimeException('Failed to prepare statement');
         }
 
-        $statement->bindValue('status', $status->value);
-        $statement->bindValue('author_id', $authorId);
-
-        if ($direction === self::DIRECTION_BACKWARD) {
-            $statement->bindValue('cursor', $beforeCursor);
-            $statement->bindValue('limit', $last);
-        } else {
-            if ($afterCursor !== null) {
-                $statement->bindValue('cursor', $afterCursor);
-            }
-
-            $statement->bindValue('limit', $first);
+        foreach ($binds as $key => $value) {
+            $statement->bindValue($key, $value);
         }
 
         $result = $statement->execute();

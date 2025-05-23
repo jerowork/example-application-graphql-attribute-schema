@@ -14,8 +14,8 @@ interface BlogRepository
     public function getById(string $blogId): Blog;
 
     public function getBlogs(
-        BlogStatus $status,
-        string $authorId,
+        ?BlogStatus $status,
+        ?string $authorId,
         ?int $first,
         ?string $afterCursor,
         ?int $last,

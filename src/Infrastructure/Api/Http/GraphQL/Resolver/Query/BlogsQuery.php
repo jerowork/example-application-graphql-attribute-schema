@@ -25,12 +25,12 @@ final readonly class BlogsQuery
     #[Query(type: new ConnectionType(BlogType::class))]
     public function blogs(
         EdgeArgs $edgeArgs,
-        BlogStatusType $status,
+        ?BlogStatusType $status,
         #[Arg(description: 'The author identifier')]
-        string $authorId,
+        ?string $authorId,
     ): Connection {
         $blogs = $this->blogRepository->getBlogs(
-            BlogStatus::from($status->value),
+            $status !== null ? BlogStatus::from($status->value) : null,
             $authorId,
             $edgeArgs->first,
             $edgeArgs->after,
@@ -38,21 +38,19 @@ final readonly class BlogsQuery
             $edgeArgs->before,
         );
 
-        $limit = $edgeArgs->last !== null & $edgeArgs->before !== null ? $edgeArgs->last : $edgeArgs->first;
-
         $hasPreviousPage = $this->blogRepository->getBlogs(
-            BlogStatus::from($status->value),
+            $status !== null ? BlogStatus::from($status->value) : null,
             $authorId,
             null,
             null,
-            $limit,
+            $edgeArgs->last ?? $edgeArgs->first,
             $blogs->first()?->id,
         )->blogs !== [];
 
         $hasNextPage = $this->blogRepository->getBlogs(
-            BlogStatus::from($status->value),
+            $status !== null ? BlogStatus::from($status->value) : null,
             $authorId,
-            $limit,
+            $edgeArgs->last ?? $edgeArgs->first,
             $blogs->last()?->id,
             null,
             null,
