@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\Http\Controller;
 
+use GraphQL\Error\DebugFlag;
 use GraphQL\Executor\ExecutionResult;
 use GraphQL\Server\ServerConfig;
 use GraphQL\Server\StandardServer;
@@ -49,10 +50,10 @@ final readonly class GraphQLServerController
 
         // 4. Handle batch requests
         if (is_array($result)) {
-            return new JsonResponse(array_map(fn($res) => $res->toArray(), $result));
+            return new JsonResponse(array_map(fn($res) => $res->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE | DebugFlag::INCLUDE_TRACE), $result));
         }
 
         // 5. Return response
-        return new JsonResponse($result->toArray());
+        return new JsonResponse($result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE | DebugFlag::INCLUDE_TRACE));
     }
 }
