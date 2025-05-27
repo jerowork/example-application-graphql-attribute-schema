@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e9bf93361e3e21b4a647af65046e1c7",
+    "content-hash": "4f20c0b6af6504c53e7db0958e2cf437",
     "packages": [
         {
             "name": "brick/math",
@@ -184,16 +184,16 @@
         },
         {
             "name": "jerowork/graphql-attribute-schema",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jerowork/graphql-attribute-schema.git",
-                "reference": "2ffd2e3105ca189b817deea68a4520adde4f84ba"
+                "reference": "f22e5725d017df4385247d09201e07f0d57c6d6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/2ffd2e3105ca189b817deea68a4520adde4f84ba",
-                "reference": "2ffd2e3105ca189b817deea68a4520adde4f84ba",
+                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/f22e5725d017df4385247d09201e07f0d57c6d6b",
+                "reference": "f22e5725d017df4385247d09201e07f0d57c6d6b",
                 "shasum": ""
             },
             "require": {
@@ -237,9 +237,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jerowork/graphql-attribute-schema/issues",
-                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.4.0"
+                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.5.0"
             },
-            "time": "2025-05-23T15:38:27+00:00"
+            "time": "2025-05-27T17:41:02+00:00"
         },
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -949,16 +949,16 @@
         },
         {
             "name": "roave/better-reflection",
-            "version": "6.57.0",
+            "version": "6.59.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/BetterReflection.git",
-                "reference": "d5fa8e106a1a046ea9b9a79e4ce95c6b6c158ae0"
+                "reference": "e59267bf734297e1abfc4f7ddb3d35e4be95c0f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/d5fa8e106a1a046ea9b9a79e4ce95c6b6c158ae0",
-                "reference": "d5fa8e106a1a046ea9b9a79e4ce95c6b6c158ae0",
+                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/e59267bf734297e1abfc4f7ddb3d35e4be95c0f6",
+                "reference": "e59267bf734297e1abfc4f7ddb3d35e4be95c0f6",
                 "shasum": ""
             },
             "require": {
@@ -971,8 +971,8 @@
                 "thecodingmachine/safe": "<1.1.3"
             },
             "require-dev": {
-                "phpbench/phpbench": "^1.4.0",
-                "phpunit/phpunit": "^11.5.7"
+                "phpbench/phpbench": "^1.4.1",
+                "phpunit/phpunit": "^11.5.21"
             },
             "suggest": {
                 "composer/composer": "Required to use the ComposerSourceLocator"
@@ -1012,9 +1012,9 @@
             "description": "Better Reflection - an improved code reflection API",
             "support": {
                 "issues": "https://github.com/Roave/BetterReflection/issues",
-                "source": "https://github.com/Roave/BetterReflection/tree/6.57.0"
+                "source": "https://github.com/Roave/BetterReflection/tree/6.59.0"
             },
-            "time": "2025-02-12T20:28:58+00:00"
+            "time": "2025-05-27T21:09:39+00:00"
         },
         {
             "name": "symfony/cache",
@@ -5173,7 +5173,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
@@ -5182,9 +5182,9 @@
         "ext-iconv": "*",
         "ext-sqlite3": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.4.7"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
