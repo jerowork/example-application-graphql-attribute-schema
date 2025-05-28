@@ -22,7 +22,7 @@
         "ext-iconv": "*",
         "ext-sqlite3": "*",
         "guzzlehttp/psr7": "^2.7.1",
-        "jerowork/graphql-attribute-schema": "^0.5",
+        "jerowork/graphql-attribute-schema": "^0.6",
         "php-http/discovery": "^1.20",
         "psr/container": "^2.0.2",
         "ramsey/uuid": "^4.7.6",

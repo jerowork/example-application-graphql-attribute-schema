@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f20c0b6af6504c53e7db0958e2cf437",
+    "content-hash": "8073df34c1b487465ab359ce0d3e266f",
     "packages": [
         {
             "name": "brick/math",
@@ -184,16 +184,16 @@
         },
         {
             "name": "jerowork/graphql-attribute-schema",
-            "version": "0.5.0",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jerowork/graphql-attribute-schema.git",
-                "reference": "f22e5725d017df4385247d09201e07f0d57c6d6b"
+                "reference": "12d0a33c2c0b0c0a659bca5e6c7d0d5e3cd5c1cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/f22e5725d017df4385247d09201e07f0d57c6d6b",
-                "reference": "f22e5725d017df4385247d09201e07f0d57c6d6b",
+                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/12d0a33c2c0b0c0a659bca5e6c7d0d5e3cd5c1cc",
+                "reference": "12d0a33c2c0b0c0a659bca5e6c7d0d5e3cd5c1cc",
                 "shasum": ""
             },
             "require": {
@@ -237,9 +237,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jerowork/graphql-attribute-schema/issues",
-                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.5.0"
+                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.6.0"
             },
-            "time": "2025-05-27T17:41:02+00:00"
+            "time": "2025-05-28T19:19:13+00:00"
         },
         {
             "name": "jetbrains/phpstorm-stubs",
