@@ -11,6 +11,9 @@ namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog;
  */
 interface BlogRepository
 {
+    /**
+     * @throws BlogNotFoundException
+     */
     public function getById(string $blogId): Blog;
 
     public function getBlogs(

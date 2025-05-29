@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Persistence\Blog\SQLite;
 
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\Blog;
+use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\BlogNotFoundException;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\BlogRepository;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\Blogs;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\BlogStatus;
@@ -54,6 +55,10 @@ final readonly class SQLiteBlogRepository implements BlogRepository
 
         /** @var BlogRowPayload $row */
         $row = $result->fetchArray(SQLITE3_ASSOC);
+
+        if (!$row) {
+            throw new BlogNotFoundException('Blog not found');
+        }
 
         return SQLiteBlogFactory::createFromRow($row);
     }
