@@ -61,6 +61,61 @@ final readonly class SQLiteAuthorRepository implements AuthorRepository
         );
     }
 
+    public function getByIds(string ...$authorIds): array
+    {
+        $sqlite = $this->sqliteFactory->create();
+
+        $idBinds = [];
+        for ($i = 0; $i < count($authorIds); ++$i) {
+            $idBinds[] = sprintf(':id_%d', $i);
+        }
+
+        $idBinds = implode(', ', $idBinds);
+
+        $statement = $sqlite->prepare(
+            <<<SQL
+                SELECT * 
+                FROM author 
+                WHERE id IN({$idBinds})
+                SQL
+        );
+
+        if ($statement === false) {
+            throw new RuntimeException('Failed to prepare statement');
+        }
+
+        $i = 0;
+        foreach ($authorIds as $authorId) {
+            $statement->bindValue(sprintf('id_%d', $i), $authorId);
+            ++$i;
+        }
+
+        $result = $statement->execute();
+
+        if ($result === false) {
+            throw new RuntimeException('Failed to execute statement');
+        }
+
+        $authors = [];
+
+        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+            /**
+             * @var array{
+             *     id: string,
+             *     name: string,
+             *     email: null|string
+             * } $row
+             */
+            $authors[] = new Author(
+                $row['id'],
+                $row['name'],
+                $row['email'],
+            );
+        }
+
+        return $authors;
+    }
+
     public function save(Author $author): void
     {
         $sqlite = $this->sqliteFactory->create();

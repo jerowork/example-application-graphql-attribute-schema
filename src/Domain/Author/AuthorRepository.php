@@ -13,5 +13,10 @@ interface AuthorRepository
 {
     public function getById(string $authorId): Author;
 
+    /**
+     * @return list<Author>
+     */
+    public function getByIds(string ...$authorIds): array;
+
     public function save(Author $author): void;
 }

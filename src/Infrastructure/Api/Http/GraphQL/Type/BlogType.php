@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\Http\GraphQL\Type;
 
 use DateTimeImmutable;
-use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\AuthorRepository;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\Blog;
-use Jerowork\GraphqlAttributeSchema\Attribute\Autowire;
+use Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\Http\GraphQL\Loader\AuthorTypeLoader;
 use Jerowork\GraphqlAttributeSchema\Attribute\Cursor;
 use Jerowork\GraphqlAttributeSchema\Attribute\Field;
 use Jerowork\GraphqlAttributeSchema\Attribute\Option\ListType;
@@ -42,12 +41,10 @@ final readonly class BlogType
         return $this->blog->title;
     }
 
-    #[Field]
-    public function getAuthor(
-        #[Autowire]
-        AuthorRepository $authorRepository,
-    ): AuthorType {
-        return new AuthorType($authorRepository->getById($this->blog->authorId));
+    #[Field(type: AuthorType::class, deferredTypeLoader: AuthorTypeLoader::class)]
+    public function getAuthor(): string
+    {
+        return $this->blog->authorId;
     }
 
     /**
