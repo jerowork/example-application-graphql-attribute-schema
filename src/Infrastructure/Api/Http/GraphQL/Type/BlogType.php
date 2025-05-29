@@ -6,7 +6,6 @@ namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\H
 
 use DateTimeImmutable;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Blog\Blog;
-use Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\Http\GraphQL\Loader\AuthorTypeLoader;
 use Jerowork\GraphqlAttributeSchema\Attribute\Cursor;
 use Jerowork\GraphqlAttributeSchema\Attribute\Field;
 use Jerowork\GraphqlAttributeSchema\Attribute\Option\ListType;
@@ -16,7 +15,7 @@ use Symfony\Component\DependencyInjection\Attribute\Exclude;
 
 #[Exclude]
 #[Type]
-final readonly class BlogType
+final readonly class BlogType implements ContentType
 {
     public function __construct(
         public Blog $blog,
@@ -41,7 +40,6 @@ final readonly class BlogType
         return $this->blog->title;
     }
 
-    #[Field(type: AuthorType::class, deferredTypeLoader: AuthorTypeLoader::class)]
     public function getAuthor(): string
     {
         return $this->blog->authorId;
