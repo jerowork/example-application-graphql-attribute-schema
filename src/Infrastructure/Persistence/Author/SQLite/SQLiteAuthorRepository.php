@@ -6,6 +6,7 @@ namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Persi
 
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\Author;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\AuthorRepository;
+use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\Email;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Persistence\SQLite\SQLiteFactory;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\Attribute\AsAlias;
@@ -57,7 +58,7 @@ final readonly class SQLiteAuthorRepository implements AuthorRepository
         return new Author(
             $row['id'],
             $row['name'],
-            $row['email'],
+            $row['email'] !== null ? new Email($row['email']) : null,
         );
     }
 
@@ -109,7 +110,7 @@ final readonly class SQLiteAuthorRepository implements AuthorRepository
             $authors[] = new Author(
                 $row['id'],
                 $row['name'],
-                $row['email'],
+                $row['email'] !== null ? new Email($row['email']) : null,
             );
         }
 
@@ -156,7 +157,7 @@ final readonly class SQLiteAuthorRepository implements AuthorRepository
         $statement->bindValue('name', $author->name);
 
         if ($author->email !== null) {
-            $statement->bindValue('email', $author->email);
+            $statement->bindValue('email', (string) $author->email);
         }
 
         $statement->execute();

@@ -6,6 +6,7 @@ namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\H
 
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\Author;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\AuthorRepository;
+use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\Email;
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\Http\GraphQL\Type\AuthorType;
 use Jerowork\GraphqlAttributeSchema\Attribute\Mutation;
 use Ramsey\Uuid\Uuid;
@@ -19,7 +20,7 @@ final readonly class CreateAuthorMutation
     ) {}
 
     #[Mutation(description: 'Create an author')]
-    public function createAuthor(string $name, ?string $email): AuthorType
+    public function createAuthor(string $name, ?Email $email): AuthorType
     {
         $author = new Author(
             (string) Uuid::uuid7(),

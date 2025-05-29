@@ -19,6 +19,7 @@
     "require": {
         "php": "^8.4",
         "ext-ctype": "*",
+        "ext-filter": "*",
         "ext-iconv": "*",
         "ext-sqlite3": "*",
         "guzzlehttp/psr7": "^2.7.1",

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Jerowork\ExampleApplicationGraphqlAttributeSchema\Infrastructure\Api\Http\GraphQL\Type;
 
 use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\Author;
+use Jerowork\ExampleApplicationGraphqlAttributeSchema\Domain\Author\Email;
 use Jerowork\GraphqlAttributeSchema\Attribute\Field;
 use Jerowork\GraphqlAttributeSchema\Attribute\Type;
 use Symfony\Component\DependencyInjection\Attribute\Exclude;
@@ -30,7 +31,7 @@ final readonly class AuthorType
     }
 
     #[Field]
-    public function getEmail(): ?string
+    public function getEmail(): ?Email
     {
         return $this->author->email;
     }
