@@ -33,7 +33,7 @@
         "symfony/event-dispatcher": "7.3.*",
         "symfony/flex": "^2.7",
         "symfony/framework-bundle": "~7.2.5",
-        "symfony/http-foundation": "7.2.*",
+        "symfony/http-foundation": "7.3.*",
         "symfony/http-kernel": "7.2.*",
         "symfony/psr-http-message-bridge": "7.2.*",
         "symfony/routing": "7.2.*",
