@@ -38,7 +38,7 @@
         "symfony/psr-http-message-bridge": "7.2.*",
         "symfony/routing": "7.2.*",
         "symfony/runtime": "~7.3.0",
-        "symfony/yaml": "~7.2.6",
+        "symfony/yaml": "~7.3.0",
         "webonyx/graphql-php": "^15.20"
     },
     "require-dev": {
