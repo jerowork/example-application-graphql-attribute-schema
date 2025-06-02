@@ -184,16 +184,16 @@
         },
         {
             "name": "jerowork/graphql-attribute-schema",
-            "version": "0.6.1",
+            "version": "0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jerowork/graphql-attribute-schema.git",
-                "reference": "0556d0543757dd9bb76cbf0eb697fb27d5d6debb"
+                "reference": "6b191d57986d85a6d5b7178a25230326ed73c4b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/0556d0543757dd9bb76cbf0eb697fb27d5d6debb",
-                "reference": "0556d0543757dd9bb76cbf0eb697fb27d5d6debb",
+                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/6b191d57986d85a6d5b7178a25230326ed73c4b7",
+                "reference": "6b191d57986d85a6d5b7178a25230326ed73c4b7",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,7 @@
                     "homepage": "https://jero.work"
                 }
             ],
-            "description": "Easily build your GraphQL schema for webonyx/graphql-php using PHP attributes instead of large configuration arrays.",
+            "description": "Build your GraphQL schema for webonyx/graphql-php using PHP attributes instead of array-based configuration.",
             "keywords": [
                 "attributes",
                 "graphql",
@@ -237,9 +237,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jerowork/graphql-attribute-schema/issues",
-                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.6.1"
+                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.6.2"
             },
-            "time": "2025-05-30T17:03:54+00:00"
+            "time": "2025-06-02T19:02:45+00:00"
         },
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -290,16 +290,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.4.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "447a020a1f875a434d62f2a401f53b82a396e494"
+                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/447a020a1f875a434d62f2a401f53b82a396e494",
-                "reference": "447a020a1f875a434d62f2a401f53b82a396e494",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ae59794362fe85e051a58ad36b289443f57be7a9",
+                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9",
                 "shasum": ""
             },
             "require": {
@@ -342,9 +342,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.5.0"
             },
-            "time": "2024-12-30T11:07:19+00:00"
+            "time": "2025-05-31T08:24:38+00:00"
         },
         {
             "name": "php-http/discovery",
