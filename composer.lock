@@ -184,16 +184,16 @@
         },
         {
             "name": "jerowork/graphql-attribute-schema",
-            "version": "0.6.3",
+            "version": "0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jerowork/graphql-attribute-schema.git",
-                "reference": "5a54ed9d3e1eeff156759551867d0a3e9e9c8c15"
+                "reference": "26dd2e5f3c916ade753a5ff520fb88676650c8e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/5a54ed9d3e1eeff156759551867d0a3e9e9c8c15",
-                "reference": "5a54ed9d3e1eeff156759551867d0a3e9e9c8c15",
+                "url": "https://api.github.com/repos/jerowork/graphql-attribute-schema/zipball/26dd2e5f3c916ade753a5ff520fb88676650c8e1",
+                "reference": "26dd2e5f3c916ade753a5ff520fb88676650c8e1",
                 "shasum": ""
             },
             "require": {
@@ -237,9 +237,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jerowork/graphql-attribute-schema/issues",
-                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.6.3"
+                "source": "https://github.com/jerowork/graphql-attribute-schema/tree/0.6.4"
             },
-            "time": "2025-06-12T19:18:06+00:00"
+            "time": "2025-06-16T18:20:35+00:00"
         },
         {
             "name": "php-http/discovery",
